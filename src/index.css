@@ -1,0 +1,135 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #f0f0f0;
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-weight: bold;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 2px solid #2b2b2b;
+  background-color: #000000;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  width: 8px;
+  height: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted #161616;
+}
+
+.food {
+  background-color: #00e244;
+  z-index: 10;
+  border-color: #00e244;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 2px #00e244;
+  animation: glowfood 1.5s linear infinite alternate;
+
+}
+
+.body {
+  background-color: #3842ff;
+  border-color: #3842ff;
+}
+
+button {
+  font-weight: bold;
+  background-color: #ebc800;
+  border: none;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 4px;
+  color: #000000;
+  outline: none;
+  margin: 10px;
+}
+
+.score {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.game-over {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e51919;
+  letter-spacing: 8px;
+}
+
+.keys-container button {
+  background-color: #4f4f4f;
+  width: 100px;
+}
+
+.keys-container {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.keys-container>.key-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@keyframes glowfood {
+  to {
+    box-shadow: 0px 0px 12px 6px #00e244a8;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cell {
+    width: 4px;
+    height: 4px;
+  }
+
+  .keys-container {
+    visibility: visible;
+  }
+}
