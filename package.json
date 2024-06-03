@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://bibekkakati.github.io/snake-game-web",
+    "homepage": "https://bibekkakati.github.io",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
