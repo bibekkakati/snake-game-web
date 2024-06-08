@@ -9,6 +9,12 @@ const DOWN = Symbol("down");
 const RIGHT = Symbol("right");
 const LEFT = Symbol("left");
 
+const gameAudio = new Audio("/gameplay.mp3");
+gameAudio.loop = true;
+
+const bonusAudio = new Audio("/point.mp3");
+const errorAudio = new Audio("/error.mp3");
+
 function App() {
     const timer = useRef(null);
     const grid = useRef(Array(ROWs).fill(Array(COLs).fill("")));
@@ -119,6 +125,7 @@ function App() {
         if (foodConsumed) {
             setPoints((points) => points + 10);
             populateFoodBall();
+            bonusAudio.play();
         }
 
         // If there is no collision for the movement, continue the game
@@ -170,9 +177,12 @@ function App() {
         }, 100);
 
         timer.current = interval;
+        gameAudio.play();
     };
 
     const stopGame = async () => {
+        gameAudio.pause();
+        errorAudio.play();
         setGameOver(true);
         setPlaying(false);
         if (timer.current) {
